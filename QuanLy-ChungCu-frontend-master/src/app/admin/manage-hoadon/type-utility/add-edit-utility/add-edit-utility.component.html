@@ -1,0 +1,48 @@
+<h4 mat-dialog-title>CHỈNH SỬA THÔNG TIN</h4>
+<form (ngSubmit)="submitAction()" [formGroup]="hdscctForm">
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Tên dịch vụ</mat-label>
+      <input matInput placeholder="Vui lòng nhập" [formControlName]="'ten'" readonly>
+      <mat-icon [ngClass]="{'red-icon': !hdscctForm.get('ten').valid && hdscctForm.get('ten').touched}" matSuffix>
+        assignment</mat-icon>
+      <mat-hint *ngIf="!hdscctForm.get('ten').valid && hdscctForm.get('ten').touched"
+        style="color: rgb(211, 102, 102);">Error is blank</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Đơn giá</mat-label>
+      <input matInput placeholder="Vui lòng nhập đơn giá" [formControlName]="'donGia'" type="number" required>
+      <mat-icon [ngClass]="{'red-icon': !hdscctForm.get('donGia').valid && hdscctForm.get('donGia').touched}" matSuffix>
+        assignment</mat-icon>
+      <mat-hint *ngIf="!hdscctForm.get('donGia').valid && hdscctForm.get('donGia').touched"
+        style="color: rgb(211, 102, 102);">Error is blank</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Số lượng</mat-label>
+      <input matInput placeholder="Vui lòng nhập số lượng" [formControlName]="'soLuong'" type="number" required>
+      <mat-icon [ngClass]="{'red-icon': !hdscctForm.get('soLuong').valid && hdscctForm.get('soLuong').touched}"
+        matSuffix>assignment</mat-icon>
+      <mat-hint *ngIf="!hdscctForm.get('soLuong').valid && hdscctForm.get('soLuong').touched"
+        style="color: rgb(211, 102, 102);">Error is blank</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Mô tả</mat-label>
+      <textarea matInput placeholder="Vui lòng nhập mô tả" [formControlName]="'moTa'"></textarea>
+      <mat-icon [ngClass]="{'red-icon': !hdscctForm.get('moTa').valid && hdscctForm.get('moTa').touched}" matSuffix>
+        assignment</mat-icon>
+      <mat-hint *ngIf="!hdscctForm.get('moTa').valid && hdscctForm.get('moTa').touched"
+        style="color: rgb(204, 87, 87);">Error</mat-hint>
+    </mat-form-field>
+  </p>
+
+  <mat-dialog-actions align="end">
+    <button mat-flat-button mat-dialog-close>Thoát</button>
+    <button [disabled]="(!hdscctForm.valid)" mat-flat-button color="primary">Sửa</button>
+  </mat-dialog-actions>
+</form>
